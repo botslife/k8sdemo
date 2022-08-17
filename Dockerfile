@@ -1,5 +1,4 @@
-FROM maven:3.8.3-openjdk-17
-WORKDIR /app
-COPY pom.xml ./
-COPY src ./src
-CMD ["mvn", "spring-boot:run"]
+FROM openjdk:17-alpine
+EXPOSE 8080
+ADD target/rest-v1.jar rest-v1.jar
+ENTRYPOINT ["java","-jar","/rest-v1.jar"]
