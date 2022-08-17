@@ -1,4 +1,5 @@
-FROM openjdk:17-alpine
-COPY target/rest-v1.jar rest-v1.jar
-COPY --from=build target/rest-v1.jar /rest-v1.jar
-CMD ["java", "-Djava.security.egd=file:/dev/./urandom" , "-jar" , "/rest-v1.jar"]
+FROM maven:3.8.3-openjdk-17
+WORKDIR /app
+COPY pom.xml ./
+COPY src ./src
+CMD ["mvn", "spring-boot:run"]
