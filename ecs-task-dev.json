@@ -10,11 +10,14 @@
         "secretOptions": null,
         "options": {
           "awslogs-group": "/ecs/emp-task-def",
-          "awslogs-region": "us-east-1",
+          "awslogs-region": "eu-central-1",
           "awslogs-stream-prefix": "ecs"
         }
       },
-      "entryPoint": null,
+      "entryPoint": [
+        "sh",
+        "-c"
+      ],
       "portMappings": [
         {
           "hostPort": 8080,
@@ -22,9 +25,11 @@
           "containerPort": 8080
         }
       ],
-      "command": null,
+      "command": [
+        "/bin/sh -c \"echo '<html> <head> <title>Amazon ECS Sample App</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Amazon ECS Sample App</h1> <h2>Congratulations!</h2> <p>Your application is now running on a container in Amazon ECS.</p> </div></body></html>' >  /usr/local/apache2/htdocs/index.html && httpd-foreground\""
+      ],
       "linuxParameters": null,
-      "cpu": 0,
+      "cpu": 256,
       "environment": [],
       "resourceRequirements": null,
       "ulimits": null,
@@ -34,10 +39,10 @@
       "secrets": null,
       "dockerSecurityOptions": null,
       "memory": null,
-      "memoryReservation": null,
+      "memoryReservation": 1024,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "317778354371.dkr.ecr.us-east-1.amazonaws.com/empapp:39a11177e19bf7fd7bd4ebacb9c5692673e3c220",
+      "image": "httpd:2.4",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -45,7 +50,7 @@
       "interactive": null,
       "healthCheck": null,
       "essential": true,
-      "links": null,
+      "links": [],
       "hostname": null,
       "extraHosts": null,
       "pseudoTerminal": null,
@@ -64,7 +69,7 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:317778354371:task-definition/emp-task-def:5",
+  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:317778354371:task-definition/emp-task-def:1",
   "family": "emp-task-def",
   "requiresAttributes": [
     {
@@ -83,19 +88,13 @@
       "targetId": null,
       "targetType": null,
       "value": null,
-      "name": "com.amazonaws.ecs.capability.ecr-auth"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
       "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
     },
     {
       "targetId": null,
       "targetType": null,
       "value": null,
-      "name": "ecs.capability.execution-role-ecr-pull"
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
     },
     {
       "targetId": null,
@@ -115,12 +114,9 @@
     "FARGATE"
   ],
   "networkMode": "awsvpc",
-  "runtimePlatform": {
-    "operatingSystemFamily": "LINUX",
-    "cpuArchitecture": null
-  },
+  "runtimePlatform": null,
   "cpu": "1024",
-  "revision": 5,
+  "revision": 1,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
