@@ -37,7 +37,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "317778354371.dkr.ecr.us-east-1.amazonaws.com/empapp",
+      "image": "317778354371.dkr.ecr.us-east-1.amazonaws.com/empapp:39a11177e19bf7fd7bd4ebacb9c5692673e3c220",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -58,13 +58,13 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "1024",
+  "memory": "2048",
   "taskRoleArn": null,
   "compatibilities": [
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:317778354371:task-definition/emp-task-def:1",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:317778354371:task-definition/emp-task-def:5",
   "family": "emp-task-def",
   "requiresAttributes": [
     {
@@ -119,8 +119,8 @@
     "operatingSystemFamily": "LINUX",
     "cpuArchitecture": null
   },
-  "cpu": "512",
-  "revision": 1,
+  "cpu": "1024",
+  "revision": 5,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
